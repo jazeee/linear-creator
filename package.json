@@ -2,13 +2,15 @@
   "name": "linear-creator",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@inquirer/prompts": "3.3.0",
     "@linear/sdk": "13.0.0"
   }
 }
