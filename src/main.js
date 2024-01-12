@@ -1,16 +1,23 @@
 import { createIssue } from "./createTicket.mjs";
-import { editor, input } from '@inquirer/prompts';
+import { editor, input, select } from '@inquirer/prompts';
 
 async function editAndCreateTicket(props) {
   const { isPermanentTicket = true } = props;
+  const teamKey = await select({
+    message: 'Team Name',
+    choices: [
+      { value: 'CLI', name: "Clipboard Health" },
+      { value: 'DEV', name: "DevX" },
+      { value: 'FEF', name: "Frontend" },
+    ],
+    default: 'FEF',
+  });
   const title = await input({ message: 'Title' });
   const summary = (await editor({ message: 'Summary', default: "Summary\n===\n\n", waitForUseInput: false })).trim();
-  const changes = (await editor({ message: 'Changes', default: "Changes\n===\n", waitForUseInput: false })).trim();
 
   console.log("Creating ticket...");
-  const { issue, url, identifier } = await createIssue({ title, description: `
-${summary}
-` });
+  console.log("-----------------------------");
+  const { issue, url, identifier } = await createIssue({ teamKey, title, description: summary });
 
   console.log(`
 fix(${identifier}): ${title}
@@ -20,7 +27,9 @@ ${summary}
 Ticket:
 ${url}
 
-${changes}`);
+Changes
+===
+`);
 
   if (!isPermanentTicket) {
     await issue.delete();

@@ -27,10 +27,11 @@ async function getTeamByKey(key = "FEF") {
 }
 
 export async function createIssue(props) {
-  const team = await getTeamByKey("FEF");
+  const { teamKey, title, description } = props;
+  const team = await getTeamByKey(teamKey);
   const me = await linearClient.viewer;
   if (team.id && me.id) {
-    const response = await linearClient.createIssue({ teamId: team.id, ...props, assigneeId: me.id });
+    const response = await linearClient.createIssue({ teamId: team.id, title, description, assigneeId: me.id });
     const issue = await response.issue;
     return {
       response,
