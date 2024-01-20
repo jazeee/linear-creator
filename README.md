@@ -12,9 +12,15 @@ This creates a linear ticket in your Linear.io project.
   - Once created, use that new key to set your environment variable `CBH_LINEAR_API_KEY`
   - Note - the key is only visible when created.
 
+## Build
+
+- `npm run build` or  `npm run build:watch`
+
 ## Running
 
-- `node src/main.js`
+Once built
+
+- `npm start` or `node dist/main.js`
   - Enter `Title`. This becomes the ticket title
   - Enter `Subject` in your preferred editor (default `vim`)
   - Enter `Changes` in your preferred editor (default `vim`)

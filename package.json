@@ -2,15 +2,22 @@
   "name": "linear-creator",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
-  "main": "main.js",
+  "main": "dist/main.js",
   "scripts": {
+    "build": "swc build ./src -d dist",
+    "build:watch": "npm run build -- --watch",
+    "start": "npm run build && node dist/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Jaz",
   "license": "ISC",
   "dependencies": {
     "@inquirer/prompts": "3.3.0",
     "@linear/sdk": "13.0.0"
+  },
+  "devDependencies": {
+    "@swc/cli": "0.1.63",
+    "@swc/core": "1.3.104",
+    "chokidar": "3.5.3"
   }
 }

@@ -1,7 +1,11 @@
-import { createIssue } from "./createTicket.mjs";
+import { createIssue } from "./createTicket";
 import { editor, input, select } from '@inquirer/prompts';
 
-async function editAndCreateTicket(props) {
+interface EditAndCreateTicketProps {
+  isPermanentTicket?: boolean;
+}
+
+async function editAndCreateTicket(props: EditAndCreateTicketProps) {
   const { isPermanentTicket = true } = props;
   const teamKey = await select({
     message: 'Team Name',
@@ -32,7 +36,7 @@ Changes
 `);
 
   if (!isPermanentTicket) {
-    await issue.delete();
+    await issue?.delete();
   }
 }
 
