@@ -21,9 +21,9 @@ This creates a linear ticket in your Linear.io project.
 Once built
 
 - `npm start` or `node dist/main.js`
+  - Pick your `Team Name`. This becomes the Linear team
   - Enter `Title`. This becomes the ticket title
   - Enter `Subject` in your preferred editor (default `vim`)
-  - Enter `Changes` in your preferred editor (default `vim`)
 - Wait a few seconds.
 
 ### Outcome
@@ -49,13 +49,25 @@ https://linear.app/.../FEF-471...
 
 Changes
 ===
-- Do this
-- Do that
-
-1. Bullet test
-
-Video
----
-
-https://jazeee.com
 ```
+
+## Creating an alias:
+
+You can run this build using an alias like:
+
+```
+alias linear-create-ticket='node ~/code/linear-creator/dist/main.js'
+linear-create-ticket
+```
+
+## Customizing your editor
+
+This package uses the node recommended package `@inquirer/prompts`
+
+I tested with `EDITOR=code node dist/main.js`, which does open the file in vscode.
+The problem with this is that `vscode` immediately returns, and prompt assumes that you are done
+editing.
+
+There may be configurations that will help with this, so I recommend looking at the fine manual.
+
+See https://github.com/SBoudrias/Inquirer.js?tab=readme-ov-file#editor
