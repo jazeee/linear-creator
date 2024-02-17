@@ -7,6 +7,7 @@ interface EditAndCreateTicketProps {
 
 async function editAndCreateTicket(props: EditAndCreateTicketProps) {
   const { isPermanentTicket = true } = props;
+  console.log(`Create A Linear Ticket${isPermanentTicket ? "" : " and Delete It"}`)
   const teamKey = await select({
     message: 'Team Name',
     choices: [
@@ -21,9 +22,10 @@ async function editAndCreateTicket(props: EditAndCreateTicketProps) {
 
   console.log("Creating ticket...");
   console.log("-----------------------------");
-  const { issue, url, identifier } = await createIssue({ teamKey, title, description: summary });
+  try {
+    const { issue, url, identifier } = await createIssue({ teamKey, title, description: summary });
 
-  console.log(`
+    console.log(`
 fix(${identifier}): ${title}
 
 ${summary}
@@ -35,8 +37,12 @@ Changes
 ===
 `);
 
-  if (!isPermanentTicket) {
-    await issue?.delete();
+    if (!isPermanentTicket) {
+      await issue?.delete();
+    }
+  } catch (error) {
+    console.log({ title, summary })
+    console.error(error);
   }
 }
 
