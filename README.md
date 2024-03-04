@@ -6,7 +6,7 @@ This creates a linear ticket in your Linear.io project.
 ## Setup
 
 - `npm install`
-- Create a Linear API key on <https://linear.app/clipboardhealth/settings/api>
+- Create a Linear API key on <https://linear.app/.../settings/api>
   - Scroll down to the `Personal API keys` section
   - Click `Create key`
   - Once created, use that new key to set your environment variable `CBH_LINEAR_API_KEY`
@@ -51,7 +51,7 @@ Changes
 ===
 ```
 
-## Creating an alias:
+## Creating an alias
 
 You can run this build using an alias like:
 
@@ -70,4 +70,4 @@ editing.
 
 There may be configurations that will help with this, so I recommend looking at the fine manual.
 
-See https://github.com/SBoudrias/Inquirer.js?tab=readme-ov-file#editor
+See <https://github.com/SBoudrias/Inquirer.js?tab=readme-ov-file#editor>

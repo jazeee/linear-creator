@@ -36,7 +36,7 @@ export async function createIssue(props: CreateIssueProps) {
   return {
     response,
     issue,
-    url: issue?.url ?? "", // e.g. https://linear.app/clipboardhealth/issue/FEF-467/test-can-delete
+    url: issue?.url ?? "", // e.g. https://linear.app/.../issue/FEF-467/test-can-delete
     identifier: issue?.identifier ?? "", // e.g. FEF-467
   }
 }
