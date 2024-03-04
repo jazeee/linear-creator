@@ -11,7 +11,7 @@ async function editAndCreateTicket(props: EditAndCreateTicketProps) {
   const teamKey = await select({
     message: 'Team Name',
     choices: [
-      { value: 'CLI', name: "Clipboard Health" },
+      { value: 'CLI', name: "CBH MonoRepo" },
       { value: 'DEV', name: "DevX" },
       { value: 'FEF', name: "Frontend" },
     ],
