@@ -6,7 +6,7 @@ This creates a linear ticket in your Linear.io project.
 ## Setup
 
 - `npm install`
-- Create a Linear API key on <https://linear.app/.../settings/api>
+- Create a Linear API key on <https://linear.app/***COMPANY_NAME***/settings/api>
   - Scroll down to the `Personal API keys` section
   - Click `Create key`
   - Once created, use that new key to set your environment variable `CBH_LINEAR_API_KEY`
